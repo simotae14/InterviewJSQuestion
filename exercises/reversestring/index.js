@@ -18,11 +18,14 @@ function reverse(str) {
   // return reversed;
 
   // #3 solution not using reverse() but just a for loop and arrays
-  let solutionArray = [];
-  [...str].forEach(char => {
-    solutionArray.unshift(char);
-  });
-  return solutionArray.join("");
+  // let solutionArray = [];
+  // [...str].forEach(char => {
+  //   solutionArray.unshift(char);
+  // });
+  // return solutionArray.join("");
+
+  // #4 solution not using reverse() and instead using arrays and the reduce method
+  return str.split('').reduce((acc, currentValue) => currentValue + acc, '');
 }
 
 module.exports = reverse;
