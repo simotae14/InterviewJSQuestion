@@ -9,7 +9,10 @@
 
 function palindrome(str) {
   // #1 solution, using the reverse method
-  return str === str.split('').reverse().join('');
+  // return str === str.split('').reverse().join('');
+
+  // #2 solution, using the every() method and arrays
+  return str.split('').every((char, index) => char === str[str.length - index - 1])
 }
 
 module.exports = palindrome;
