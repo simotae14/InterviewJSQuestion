@@ -6,16 +6,16 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-  const mapStringCharObject = {};
-  [...str].forEach(c => mapStringCharObject[c] = mapStringCharObject[c] + 1 || 1);
-  let maxChar = str[0];
-  Object.keys(mapStringCharObject).reduce((maxValue, currentValue) => {
-    const max = maxValue > mapStringCharObject[currentValue] ? maxValue : mapStringCharObject[currentValue];
-    if (maxValue < mapStringCharObject[currentValue]) {
-      maxChar = currentValue;
+  const charMap = {};
+  [...str].forEach(c => charMap[c] = charMap[c] + 1 || 1);
+  let max = 0;
+  let maxChar = '';
+  for (let char in charMap) {
+    if (charMap[char] > max) {
+      max = charMap[char];
+      maxChar = char;
     }
-    return max;
-  }, 0);
+  }
   return maxChar;
 }
 
