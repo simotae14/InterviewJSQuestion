@@ -20,6 +20,7 @@ function chunk(array, size) {
 */
 
 /* 2: First Solution by S. Grider */
+/*
 function chunk(array, size) {
   const chunked = [];
   for (let element of array) {
@@ -29,6 +30,18 @@ function chunk(array, size) {
     } else {
       lastElementArray.push(element)
     }
+  }
+  return chunked;
+}
+*/
+
+/* 3: Second Solution by S. Grider using Slice and a While loop */
+function chunk(array, size) {
+  const chunked = [];
+  let index = 0;
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
   }
   return chunked;
 }
