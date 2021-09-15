@@ -9,10 +9,26 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 /* 1: My solution */
+/*
 function chunk(array, size) {
   let chunked = [];
   for (var i = 0; i < array.length; i = i + size) {
     chunked.push(array.slice(i, i + size));
+  }
+  return chunked;
+}
+*/
+
+/* 2: First Solution by S. Grider */
+function chunk(array, size) {
+  const chunked = [];
+  for (let element of array) {
+    const lastElementArray = chunked[chunked.length - 1];
+    if (!lastElementArray || lastElementArray.length === size) {
+      chunked.push([element]);
+    } else {
+      lastElementArray.push(element)
+    }
   }
   return chunked;
 }
