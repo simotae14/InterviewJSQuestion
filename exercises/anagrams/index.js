@@ -8,6 +8,35 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+/* 1: My solution using Regexp and replace to clean strings
+      counting the number of keys in the First Character Map and in the second
+      and comparing the 2 Character maps
+*/
+function generateCharacterMap(stringVal) {
+  let charMap = {};
+  [...stringVal].forEach((c) => {
+    charMap[c] = charMap[c] ? charMap[c] + 1 : 1;
+  });
+  return charMap;
+}
+
+function anagrams(stringA, stringB) {
+  // generate the cleaned Strings, without spaces and punctuation
+  const stringACleaned = stringA.replace(/[^\w]/g, '').toLowerCase();
+  const stringBCleaned = stringB.replace(/[^\w]/g, '').toLowerCase();
+  // generate the Character Map of the two strings
+  const stringACharMap = generateCharacterMap(stringACleaned);
+  const stringBCharMap = generateCharacterMap(stringBCleaned);
+  // control if the number of keys are the same
+  if (Object.keys(stringACharMap).length === Object.keys(stringBCharMap).length) {
+    for (const key in stringACharMap) {
+      if (stringACharMap[key] !== stringBCharMap[key]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
+}
 
 module.exports = anagrams;
