@@ -44,6 +44,7 @@ function anagrams(stringA, stringB) {
 /* 2: Stephen's solution using an helper method to create the Characters Map, check if the strings
   has the same amount of keys with Object.keys(obj).length
 */
+/*
 function anagrams(stringA, stringB) {
   const aCharMap = buildCharMap(stringA);
   const bCharMap = buildCharMap(stringB);
@@ -66,5 +67,18 @@ function buildCharMap(str) {
   }
   return charMap;
 }
+*/
+
+/* 3: Second Stephen's solution using an helper method to create the Characters Map, check if the strings
+  has the same amount of keys with Object.keys(obj).length
+*/
+function anagrams(stringA, stringB) {
+  return cleanString(stringA) === cleanString(stringB);
+}
+
+function cleanString(str) {
+  return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+}
+
 
 module.exports = anagrams;
