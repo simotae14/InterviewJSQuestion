@@ -9,9 +9,22 @@
 /* 
 My solution: using the splice method to divede the sentence in words and
 */
+/*
 function capitalize(str) {
   const splittedString = str.split(" ").map(word => word[0].toUpperCase() + word.slice(1));
   return splittedString.join(" ");
 }
+*/
 
+/*
+Stephen's first solution: split the string into an array of words, for every word uppercase just 
+the first letter and slice the remaining chars and then return the joined string
+*/
+function capitalize(str) {
+  const words = [];
+  for (let word of str.split(' ')) {
+    words.push(word[0].toUpperCase() + word.slice(1));
+  }
+  return words.join(' ');
+}
 module.exports = capitalize;
