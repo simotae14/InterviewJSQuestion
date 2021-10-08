@@ -20,11 +20,24 @@ function capitalize(str) {
 Stephen's first solution: split the string into an array of words, for every word uppercase just 
 the first letter and slice the remaining chars and then return the joined string
 */
+/*
 function capitalize(str) {
   const words = [];
   for (let word of str.split(' ')) {
     words.push(word[0].toUpperCase() + word.slice(1));
   }
   return words.join(' ');
+}
+*/
+/*
+Stephen's second solution: split the string into an array of words, for every word uppercase just 
+the first letter and slice the remaining chars and then return the joined string
+*/
+function capitalize(str) {
+  let result = str[0].toUpperCase();
+  for (let i = 1; i < str.length; i++) {
+    result += str[i -1] === ' ' ? str[i].toUpperCase() : str[i];
+  }
+  return result;
 }
 module.exports = capitalize;
